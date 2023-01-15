@@ -76,20 +76,20 @@ if opt == "?"
     when "C" === opt
       matrix.clear; puts
     when "L" === opt[0]
-      if(opt[1].to_i < matrix.lines && opt[2].to_i < matrix.columns)
-        matrix.colour_pixel(opt[1].to_i, opt[2].to_i, opt[3]); puts
+      if(opt[1].to_i <= matrix.lines && opt[2].to_i <= matrix.columns)
+        matrix.colour_pixel(opt[1].to_i - 1, opt[2].to_i - 1, opt[3]); puts
       else
         puts "\nInvalid range...\n\n"
       end
     when "V" === opt[0]
-      if(opt[1].to_i < matrix.columns && opt[2].to_i >= 0 && opt[3].to_i < matrix.lines)
-        matrix.vertical_segment(opt[1].to_i, opt[2].to_i, opt[3].to_i, opt[4]); puts
+      if(opt[1].to_i <= matrix.columns && opt[2].to_i >= 1 && opt[3].to_i <= matrix.lines)
+        matrix.vertical_segment(opt[1].to_i - 1, opt[2].to_i - 1, opt[3].to_i - 1, opt[4]); puts
       else
         puts "\nInvalid range...\n\n"
       end
     when "H" === opt[0]
-      if(opt[1].to_i >= 0 && opt[2].to_i < matrix.columns && opt[3].to_i < matrix.lines)
-        matrix.horizontal_segment(opt[1].to_i, opt[2].to_i, opt[3].to_i, opt[4]); puts
+      if(opt[1].to_i >= 1 && opt[2].to_i <= matrix.columns && opt[3].to_i <= matrix.lines)
+        matrix.horizontal_segment(opt[1].to_i - 1, opt[2].to_i - 1, opt[3].to_i - 1, opt[4]); puts
       else
         puts "\nInvalid range...\n\n"
       end
